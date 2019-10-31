@@ -1,0 +1,7 @@
+  
+<h1>Welcome!</h1>
+<br>
+<h2>Here are all your notes:</h2>
+<br>
+<% @study_notes.each do |study_note| %>
+    <h2><a href="study_notes/<%=study_note.id%>"><%= study_note.title %></a></h2><% end %>

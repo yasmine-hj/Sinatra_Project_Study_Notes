@@ -1,0 +1,22 @@
+<h1>Edit your notes here!</h1>
+
+<form method="POST" action="/study_notes/<%= @study_note.id %>">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+
+    <select name="user_id">
+        <% @users.each do |user| %>
+            <option value="<%= user.id%>"> <%= user.name %> </option>
+        <% end %>
+    </select>
+
+    <label>Title:</label>
+    <input type="text" name="title" value="<%=@study_note.title%>">
+    <label>Topic:</label>
+    <input type="text" name="topic" value="<%=@study_note.topic%>">
+    <br>
+    <label>Notes:</label>
+    <textarea name="notes"><%= @study_note.notes %></textarea>
+
+    <input type="submit">
+
+</form>

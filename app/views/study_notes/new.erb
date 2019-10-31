@@ -1,0 +1,28 @@
+<h1>Input some new notes here!</h1>
+
+<form method="POST" action="/study_notes">
+
+    <label>Select User:</label>
+    <select name="user_id">
+        <% @users.each do |user| %>
+            <option value="<%= user.id%>"> <%= user.name %> </option>
+        <% end %>
+    </select>
+    <br>
+    <br>
+    <label>Title:</label>
+    <br>
+    <input type="text" name="title">
+    <br>
+    <label>Topic:</label>
+    <br>
+    <input type="text" name="topic">
+    <br>
+    <label>Notes:</label>
+    <br>
+    <!-- <input type="text" name="notes"> -->
+    <textarea name="notes"></textarea>
+    <br>
+    <br>
+    <input type="submit">
+</form>
