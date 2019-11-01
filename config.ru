@@ -7,3 +7,4 @@ end
 use Rack::MethodOverride
 run ApplicationController
 use StudyNotesController
+use SessionsController

@@ -1,8 +1,12 @@
 class StudyNotesController < ApplicationController
 
     get '/study_notes' do
-        @study_notes = StudyNote.all
-        erb :"study_notes/index"
+        if logged_in?
+            @study_notes = StudyNote.all
+            erb :"study_notes/index"
+        else
+            redirect "/login"
+        end
     end
 
     get '/study_notes/new' do
@@ -13,7 +17,12 @@ class StudyNotesController < ApplicationController
     get '/study_notes/:id/edit' do
         @users = User.all
         @study_note = StudyNote.find_by_id(params[:id])
-        erb :"study_notes/edit"
+        
+        if @study_notes.user.id == current_user.id
+            erb :"study_notes/edit"
+        else
+            redirect "/study_notes"
+        end
     end
 
     patch '/study_notes/:id' do
@@ -45,5 +54,11 @@ class StudyNotesController < ApplicationController
         else
             redirect "/study_notes/new"
         end
+    end
+
+    delete '/study_notes/:id' do
+        @post = StudyNote.find_by_id(params[:id])
+        @post.delete
+        redirect "/study_notes"
     end
 end

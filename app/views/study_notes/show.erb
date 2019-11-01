@@ -4,3 +4,9 @@
     <h3><%= @study_note.topic %></h3>
     <p><%= @study_note.notes %></p>
 
+    <h4>Would you like to delete this note?</h4>
+
+<form method="POST" action="/study_notes/<%=@study_note.id%>">
+    <input type="hidden" name="_method" value="DELETE" />
+    <input type="submit" value="delete" />
+</form>
