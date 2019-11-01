@@ -4,14 +4,20 @@
     <h3><%= @study_note.topic %></h3>
     <p><%= @study_note.notes %></p>
 
-    <h4>Would you like to delete this note?</h4>
+
+<% if @study_note.user.id == current_user.id %>
 
 <form method="POST" action="/study_notes/<%=@study_note.id%>">
     <input type="hidden" name="_method" value="DELETE" />
-    <input type="submit" value="delete" />
+    <input type="submit" value="delete note" />
 </form>
 
+<button><a href="/study_notes/<%= @study_note.id %>/edit">Edit your study note</a></button>
+
+<button><a href="/study_notes">Return Home to see all Study Notes!</a></button>
+
+<% else %>
 
 <button><a href="/study_notes">Return to see all Study Notes!</a></button>
 
-
+<% end %>
