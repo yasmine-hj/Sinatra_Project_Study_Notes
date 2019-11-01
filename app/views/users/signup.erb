@@ -12,3 +12,9 @@
   
   <input type="submit" value="Sign Up!">
 </form>
+
+<% if @errors %>
+    <% @errors.each do |error| %>
+        <h3><%= error %></h3>
+    <% end %>
+<% end %>

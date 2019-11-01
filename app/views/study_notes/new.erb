@@ -26,3 +26,9 @@
     <br>
     <input type="submit">
 </form>
+
+<% if @errors %>
+    <% @errors.each do |error| %>
+        <h3><%= error %></h3>
+    <% end %>
+<% end %>

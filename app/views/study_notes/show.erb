@@ -1,4 +1,5 @@
 <h1>Your notes are ready!</h1>
+
     <h2><%= @study_note.title %></h2>
     <h3><%= @study_note.topic %></h3>
     <p><%= @study_note.notes %></p>
@@ -9,3 +10,8 @@
     <input type="hidden" name="_method" value="DELETE" />
     <input type="submit" value="delete" />
 </form>
+
+
+<button><a href="/study_notes">Return to see all Study Notes!</a></button>
+
+
