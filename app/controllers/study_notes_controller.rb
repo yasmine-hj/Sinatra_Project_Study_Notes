@@ -1,5 +1,4 @@
 class StudyNotesController < ApplicationController
-
     get '/study_notes' do
         if logged_in?
             @study_notes = StudyNote.all

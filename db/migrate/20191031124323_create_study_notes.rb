@@ -1,4 +1,5 @@
 class CreateStudyNotes < ActiveRecord::Migration
+  
   def change
     create_table :study_notes do |t|
       t.string :title
