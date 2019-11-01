@@ -17,7 +17,7 @@ class StudyNotesController < ApplicationController
         @users = User.all
         @study_note = StudyNote.find_by_id(params[:id])
         
-        if @study_notes.user.id == current_user.id
+        if @study_note.user.id == current_user.id
             erb :"study_notes/edit"
         else
             redirect "/study_notes"
@@ -56,8 +56,12 @@ class StudyNotesController < ApplicationController
     end
 
     delete '/study_notes/:id' do
-        @post = StudyNote.find_by_id(params[:id])
-        @post.delete
-        redirect "/study_notes"
+        @study_note = StudyNote.find_by_id(params[:id])
+        if @study_note.user.id == current_user.id
+            @study_note.delete
+            redirect "/study_notes"
+        else
+            redirect "/study_notes"
+        end
     end
 end
