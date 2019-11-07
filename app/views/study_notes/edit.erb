@@ -3,11 +3,6 @@
 <form method="POST" action="/study_notes/<%= @study_note.id %>">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
 
-    <select name="user_id">
-        <% @users.each do |user| %>
-            <option value="<%= user.id%>"> <%= user.name %> </option>
-        <% end %>
-    </select>
 
     <label>Title:</label>
     <input type="text" name="title" value="<%=@study_note.title%>">
@@ -21,6 +16,6 @@
  <br>
     <hr>
    
-    <button><a href="/study_notes">Return Home to see all Study Notes!</a></button>
+<button><a href="/study_notes">Return  to see all Study Notes!</a></button>
 <button><a href="/study_notes/new">Write some new notes!</a></button>
 </form>
